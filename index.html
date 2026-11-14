@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Oficial - Recargas Free Fire</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Orbitron, Rajdhani & Inter para estética Gamer -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        gamer: ['Rajdhani', 'sans-serif'],
+                        orbitron: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        bgDark: '#080c16',
+                        cardDark: '#0f172a',
+                        cardHover: '#162038',
+                        electricBlue: '#3b82f6',
+                        goldYellow: '#fbbf24',
+                        neonCyan: '#00e5ff',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #080c16;
+            color: #f3f4f6;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.12) 0%, transparent 42%),
+                radial-gradient(circle at 85% 25%, rgba(0, 229, 255, 0.10) 0%, transparent 42%),
+                radial-gradient(circle at 50% 85%, rgba(251, 191, 36, 0.06) 0%, transparent 45%);
+            background-attachment: fixed;
+        }
+
+        /* Efectos de brillo y tarjetas */
+        .gamer-card {
+            background: linear-gradient(145deg, #0f172a 0%, #0b1120 100%);
+            border: 1px solid rgba(59, 130, 246, 0.18);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .gamer-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 229, 255, 0.55);
+            box-shadow: 0 12px 30px -8px rgba(0, 229, 255, 0.22), 0 0 15px rgba(59, 130, 246, 0.15);
+        }
+
+        .btn-electric {
+            background: linear-gradient(135deg, #2563eb 0%, #00b4d8 100%);
+            transition: all 0.25s ease;
+        }
+
+        .btn-electric:hover {
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+            filter: brightness(1.1);
+        }
+
+        .btn-electric:active {
+            transform: scale(0.97);
+        }
+
+        .text-gradient-electric {
+            background: linear-gradient(90deg, #00e5ff, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(90deg, #fde047, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Scrollbar personalizado */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080c16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00e5ff;
+        }
+
+        /* Animación sutil de flotación para iconos SVG */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        .animate-float {
+            animation: floatSlow 3.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-neonCyan selection:text-bgDark">
+
+    <!-- Notificación Toast Flotante -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Navbar / Encabezado Principal -->
+    <header class="sticky top-0 z-30 bg-[#080c16]/90 backdrop-blur-md border-b border-electricBlue/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3">
+            <!-- Logo y Título -->
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-neonCyan to-electricBlue p-[2px] shadow-lg shadow-neonCyan/20 shrink-0">
+                    <div class="w-full h-full bg-[#080c16] rounded-[10px] flex items-center justify-center">
+                        <!-- Icono Diamante -->
+                        <svg class="w-6 h-6 text-neonCyan" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L4.5 9.5L12 22L19.5 9.5L12 2ZM12 5.8L16.2 10H7.8L12 5.8ZM12 18.2L7.6 11.5H16.4L12 18.2Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div>
+                    <h1 id="store-title-display" class="font-orbitron text-base sm:text-xl font-extrabold tracking-wide uppercase text-white leading-tight">
+                        Recargas <span class="text-gradient-electric">Free Fire</span>
+                    </h1>
+                    <p class="text-[11px] sm:text-xs text-gray-400 mt-0.5 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+                        Recargas por ID • Saldo Móvil
+                    </p>
+                </div>
+            </div>
+
+            <!-- Botones de Acción (Admin & Carrito) -->
+            <div class="flex items-center gap-2 sm:gap-3 ml-auto">
+                <button onclick="toggleAdminModal()" class="px-3 py-2.5 rounded-xl bg-cardDark hover:bg-cardHover border border-electricBlue/30 text-gray-200 hover:text-neonCyan text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition-all cursor-pointer" title="Configurar precios y WhatsApp">
+                    <svg class="w-4 h-4 text-neonCyan shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <span class="hidden sm:inline">Editar Precios</span>
+                </button>
+
+                <button onclick="toggleCartDrawer()" class="relative px-3.5 sm:px-4 py-2.5 rounded-xl btn-electric text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-lg cursor-pointer">
+                    <svg class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                    </svg>
+                    <span>Mi Pedido</span>
+                    <span id="cart-badge" class="px-2 py-0.5 text-xs font-extrabold rounded-full bg-[#080c16] text-goldYellow border border-goldYellow/50">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner Informativo -->
+    <section class="relative overflow-hidden border-b border-electricBlue/15 bg-gradient-to-b from-electricBlue/10 via-transparent to-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-9">
+            
+            <!-- Tarjetas de Información de Pago, Recarga y Aviso Importante -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 mb-6">
+                <!-- Método de Pago -->
+                <div class="rounded-2xl bg-cardDark/90 border border-electricBlue/30 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-lg">
+                    <div class="w-11 h-11 rounded-xl bg-electricBlue/15 border border-electricBlue/30 flex items-center justify-center text-xl shrink-0">
+                        💳
+                    </div>
+                    <div class="min-w-0">
+                        <span class="block text-[11px] uppercase tracking-wider font-bold text-neonCyan">Método de Pago</span>
+                        <p class="font-gamer text-lg sm:text-xl font-extrabold text-white leading-tight">Saldo Móvil</p>
+                    </div>
+                </div>
+
+                <!-- Método de Recarga -->
+                <div class="rounded-2xl bg-cardDark/90 border border-neonCyan/30 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-lg">
+                    <div class="w-11 h-11 rounded-xl bg-neonCyan/15 border border-neonCyan/30 flex items-center justify-center text-xl shrink-0">
+                        💎
+                    </div>
+                    <div class="min-w-0">
+                        <span class="block text-[11px] uppercase tracking-wider font-bold text-neonCyan">Método de Recarga</span>
+                        <p class="font-gamer text-lg sm:text-xl font-extrabold text-white leading-tight">Por ID de Jugador</p>
+                    </div>
+                </div>
+
+                <!-- Aviso Obligatorio de Transferencia -->
+                <div class="rounded-2xl bg-gradient-to-r from-amber-500/20 via-goldYellow/15 to-amber-500/10 border border-goldYellow/50 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-lg shadow-goldYellow/10">
+                    <div class="w-11 h-11 rounded-xl bg-goldYellow/20 border border-goldYellow/40 flex items-center justify-center text-xl shrink-0 animate-pulse">
+                        ⚠️
+                    </div>
+                    <div class="min-w-0">
+                        <span class="block text-[11px] uppercase tracking-wider font-extrabold text-goldYellow">Importante</span>
+                        <p class="font-gamer text-base sm:text-lg font-extrabold text-white leading-tight uppercase">
+                            MANDAR FOTO DE LA TRANSFERENCIA
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Título y Buscador -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="text-center md:text-left">
+                    <h2 class="font-orbitron text-2xl sm:text-3xl font-extrabold text-white tracking-tight uppercase">
+                        Lista Oficial de <span class="text-gradient-gold">Precios</span>
+                    </h2>
+                    <p class="text-gray-400 text-xs sm:text-sm mt-1">
+                        Selecciona tus paquetes, ingresa tu ID y envía tu comprobante por WhatsApp.
+                    </p>
+                </div>
+
+                <!-- Barra de Búsqueda -->
+                <div class="w-full md:w-80">
+                    <div class="relative group">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-400 group-focus-within:text-neonCyan transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <input 
+                            type="text" 
+                            id="search-input" 
+                            oninput="handleSearch(this.value)"
+                            placeholder="Buscar diamantes, membresía, pase..." 
+                            class="w-full pl-10 pr-4 py-3 rounded-xl bg-cardDark border border-electricBlue/25 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-neonCyan focus:ring-1 focus:ring-neonCyan transition-all"
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filtros Rápidos por Categoría -->
+            <div class="mt-6 flex items-center gap-2 overflow-x-auto pb-1" id="category-filters">
+                <button onclick="setCategory('Todos')" data-cat="Todos" class="cat-btn active px-5 py-2.5 rounded-xl font-gamer font-bold text-sm uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap bg-electricBlue text-white shadow-lg shadow-electricBlue/30">
+                    ⚡ Todos (9)
+                </button>
+                <button onclick="setCategory('Diamantes')" data-cat="Diamantes" class="cat-btn px-5 py-2.5 rounded-xl font-gamer font-bold text-sm uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap bg-cardDark text-gray-300 hover:bg-cardHover border border-electricBlue/20">
+                    💎 Diamantes
+                </button>
+                <button onclick="setCategory('Membresías y Pase')" data-cat="Membresías y Pase" class="cat-btn px-5 py-2.5 rounded-xl font-gamer font-bold text-sm uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap bg-cardDark text-gray-300 hover:bg-cardHover border border-electricBlue/20">
+                    👑 Membresías y Pase
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo de Productos -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-7">
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <!-- Las 9 tarjetas se renderizan dinámicamente con JavaScript -->
+        </div>
+
+        <!-- Estado vacío cuando no hay resultados de búsqueda -->
+        <div id="empty-state" class="hidden text-center py-14 px-4">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-cardDark border border-electricBlue/20 flex items-center justify-center text-3xl mb-4">🔍</div>
+            <h3 class="font-gamer text-2xl font-bold text-white">No encontramos esa oferta</h3>
+            <p class="text-gray-400 text-sm mt-1">Intenta buscar con otro número o vuelve a ver todas las ofertas.</p>
+            <button onclick="resetFilters()" class="mt-4 px-5 py-2.5 rounded-xl bg-neonCyan/15 text-neonCyan border border-neonCyan/30 text-sm font-semibold hover:bg-neonCyan/25 transition-all cursor-pointer">
+                Ver las 9 ofertas
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-electricBlue/15 bg-[#060911] py-6 mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-400 text-center sm:text-left">
+            <p>© <span id="year"></span> Catálogo Oficial Free Fire • Pago con Saldo Móvil.</p>
+            <p class="text-goldYellow font-semibold">⚠️ Recuerda siempre mandar foto de la transferencia junto con tu ID.</p>
+        </div>
+    </footer>
+
+    <!-- ===================================================================== -->
+    <!-- DRAWER LATERAL DEL CARRITO DE COMPRAS                                 -->
+    <!-- ===================================================================== -->
+    <div id="cart-backdrop" onclick="toggleCartDrawer()" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-40 hidden transition-opacity opacity-0"></div>
+    
+    <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[440px] bg-[#0b1120] border-l border-electricBlue/25 z-50 transform translate-x-full transition-transform duration-300 ease-out flex flex-col shadow-2xl">
+        <!-- Header del Carrito -->
+        <div class="p-4 sm:p-5 border-b border-electricBlue/20 flex items-center justify-between bg-[#0f172a]">
+            <div class="flex items-center gap-2.5">
+                <span class="w-9 h-9 rounded-xl bg-neonCyan/15 border border-neonCyan/30 text-neonCyan flex items-center justify-center font-bold">🛒</span>
+                <div>
+                    <h3 class="font-orbitron text-base sm:text-lg font-bold text-white uppercase tracking-wide">Tu Pedido</h3>
+                    <p class="text-xs text-gray-400">Recarga por ID • Pago con Saldo Móvil</p>
+                </div>
+            </div>
+            <button onclick="toggleCartDrawer()" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-colors cursor-pointer">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Lista de Productos en el Carrito -->
+        <div id="cart-items-container" class="flex-grow overflow-y-auto p-4 sm:p-5 space-y-3">
+            <!-- Renderizado dinámico -->
+        </div>
+
+        <!-- Formulario de Datos del Jugador y Resumen -->
+        <div class="p-4 sm:p-5 border-t border-electricBlue/20 bg-[#0f172a] space-y-3.5">
+            <!-- Recordatorio visible dentro del resumen -->
+            <div class="p-3 rounded-xl bg-goldYellow/15 border border-goldYellow/40 flex items-center gap-2.5">
+                <span class="text-lg shrink-0">⚠️</span>
+                <p class="text-xs font-bold text-goldYellow leading-snug">
+                    Recuerda mandar foto de la transferencia al enviar tu pedido por WhatsApp.
+                </p>
+            </div>
+
+            <!-- Datos de Free Fire + Verificador de ID -->
+            <div class="space-y-2.5">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 mb-1">ID de Jugador (FF) <span class="text-neonCyan">*</span></label>
+                    <div class="flex gap-2">
+                        <input type="text" id="player-id" placeholder="Ej: 123456789" inputmode="numeric" pattern="[0-9]*" maxlength="15"
+                            oninput="onPlayerIdInput(this)"
+                            class="flex-grow px-3.5 py-2.5 rounded-xl bg-[#080c16] border border-electricBlue/30 text-white text-sm focus:outline-none focus:border-neonCyan">
+                        <button type="button" id="btn-verify-id" onclick="verifyPlayerId()" 
+                            class="px-3.5 py-2.5 rounded-xl bg-neonCyan/15 hover:bg-neonCyan/25 text-neonCyan border border-neonCyan/40 text-xs font-bold flex items-center gap-1.5 shrink-0 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+                            <svg id="verify-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span id="verify-btn-text">Verificar</span>
+                        </button>
+                    </div>
+                    <p id="id-status" class="mt-1.5 text-[11px] font-medium hidden"></p>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 mb-1">Nickname (Opcional)</label>
+                    <input type="text" id="player-name" placeholder="Ej: PRO_PLAYER" class="w-full px-3.5 py-2.5 rounded-xl bg-[#080c16] border border-electricBlue/30 text-white text-sm focus:outline-none focus:border-neonCyan">
+                </div>
+            </div>
+
+            <!-- Total -->
+            <div class="flex items-center justify-between pt-2 border-t border-white/10">
+                <span class="text-sm text-gray-300 font-medium">Total en Saldo Móvil:</span>
+                <span id="cart-total-price" class="font-orbitron text-xl sm:text-2xl font-extrabold text-goldYellow">0 saldo</span>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="grid grid-cols-1 gap-2">
+                <button onclick="sendOrderWhatsApp()" class="w-full py-3.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-[#080c16] font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all cursor-pointer">
+                    <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+                    </svg>
+                    Enviar Pedido por WhatsApp
+                </button>
+
+                <button onclick="copyOrderSummary()" class="w-full py-2.5 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-200 font-semibold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer">
+                    <svg class="w-4 h-4 text-neonCyan shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                    </svg>
+                    Copiar Resumen del Pedido
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ===================================================================== -->
+    <!-- MODAL PANEL DE ADMINISTRACIÓN / EDITAR PRECIOS                        -->
+    <!-- ===================================================================== -->
+    <div id="admin-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="bg-[#0f172a] border border-electricBlue/30 rounded-2xl w-full max-w-2xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+            <!-- Header Modal -->
+            <div class="p-5 border-b border-electricBlue/20 flex items-center justify-between bg-[#080c16]">
+                <div>
+                    <h3 class="font-orbitron text-base sm:text-lg font-bold text-white uppercase flex items-center gap-2">
+                        <span class="text-neonCyan">⚙️</span> Editar Precios y Contacto
+                    </h3>
+                    <p class="text-xs text-gray-400">Actualiza los precios en saldo, tu número de WhatsApp y exporta tu HTML.</p>
+                </div>
+                <button onclick="toggleAdminModal()" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white cursor-pointer">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Cuerpo del Modal -->
+            <div class="p-5 overflow-y-auto space-y-5">
+                <!-- Configuración General -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 bg-[#080c16] p-4 rounded-xl border border-electricBlue/20">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1">Nombre de la Tienda</label>
+                        <input type="text" id="admin-store-name" class="w-full px-3 py-2 rounded-lg bg-[#0f172a] border border-electricBlue/25 text-white text-sm focus:border-neonCyan focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1">WhatsApp (con código país)</label>
+                        <input type="text" id="admin-whatsapp" placeholder="Ej: 5363242573" class="w-full px-3 py-2 rounded-lg bg-[#0f172a] border border-electricBlue/25 text-white text-sm focus:border-neonCyan focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1">Etiqueta de Moneda</label>
+                        <input type="text" id="admin-currency" placeholder="saldo" class="w-full px-3 py-2 rounded-lg bg-[#0f172a] border border-electricBlue/25 text-white text-sm focus:border-neonCyan focus:outline-none">
+                    </div>
+                </div>
+
+                <!-- Lista de Precios Editables -->
+                <div>
+                    <h4 class="font-gamer text-base font-bold text-goldYellow uppercase mb-3">Tus 9 Ofertas Oficiales</h4>
+                    <div id="admin-products-list" class="space-y-2.5">
+                        <!-- Se llena con JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Modal -->
+            <div class="p-4 border-t border-electricBlue/20 bg-[#080c16] flex flex-wrap items-center justify-between gap-3">
+                <button onclick="resetDefaultPrices()" class="px-3.5 py-2 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 text-xs font-semibold transition-all cursor-pointer">
+                    Restaurar Precios
+                </button>
+
+                <div class="flex items-center gap-2.5 ml-auto">
+                    <button onclick="exportUpdatedHTML()" class="px-4 py-2.5 rounded-xl bg-neonCyan/15 hover:bg-neonCyan/25 text-neonCyan border border-neonCyan/30 text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer" title="Descarga el archivo HTML con tus nuevos precios permanentes">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        Exportar HTML
+                    </button>
+                    <button onclick="saveAdminSettings()" class="px-5 py-2.5 rounded-xl btn-electric text-white text-xs font-bold shadow-lg cursor-pointer">
+                        Guardar Cambios
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- LÓGICA JAVASCRIPT DE LA APLICACIÓN                                    -->
+    <!-- ===================================================================== -->
+    <script id="app-data-script">
+        // Configuración y las 9 ofertas exactas (Se actualiza al exportar HTML)
+        const DEFAULT_CONFIG = {
+            storeName: "Recargas Free Fire",
+            whatsappNumber: "5363242573", // +53 63242573
+            currency: "saldo"
+        };
+
+        const DEFAULT_PRODUCTS = [
+            {
+                id: "ff-110",
+                name: "110 Diamantes",
+                category: "Diamantes",
+                description: "Recarga directa por ID • Pago con Saldo Móvil.",
+                price: 290,
+                badge: "Recarga ID",
+                badgeColor: "cyan",
+                iconType: "diamond-sm"
+            },
+            {
+                id: "ff-341",
+                name: "341 Diamantes",
+                category: "Diamantes",
+                description: "Recarga directa por ID • Pago con Saldo Móvil.",
+                price: 836,
+                badge: "Recarga ID",
+                badgeColor: "cyan",
+                iconType: "diamond-md"
+            },
+            {
+                id: "ff-572",
+                name: "572 Diamantes",
+                category: "Diamantes",
+                description: "Recarga directa por ID • Pago con Saldo Móvil.",
+                price: 1385,
+                badge: "Popular ⚡",
+                badgeColor: "blue",
+                iconType: "diamond-lg"
+            },
+            {
+                id: "ff-1166",
+                name: "1,166 Diamantes",
+                category: "Diamantes",
+                description: "Recarga directa por ID • Pago con Saldo Móvil.",
+                price: 2560,
+                badge: "Recarga ID",
+                badgeColor: "cyan",
+                iconType: "diamond-xl"
+            },
+            {
+                id: "ff-2398",
+                name: "2,398 Diamantes",
+                category: "Diamantes",
+                description: "Recarga directa por ID • Pago con Saldo Móvil.",
+                price: 5016,
+                badge: "Pack Pro",
+                badgeColor: "gold",
+                iconType: "diamond-chest"
+            },
+            {
+                id: "ff-6160",
+                name: "6,160 Diamantes",
+                category: "Diamantes",
+                description: "Recarga directa por ID • Pago con Saldo Móvil.",
+                price: 12610,
+                badge: "Mega Pack 👑",
+                badgeColor: "gold",
+                iconType: "diamond-crown"
+            },
+            {
+                id: "ff-semanal",
+                name: "Membresía Semanal",
+                category: "Membresías y Pase",
+                description: "Activación directa por ID • Pago con Saldo Móvil.",
+                price: 601,
+                badge: "Membresía",
+                badgeColor: "gold",
+                iconType: "card-weekly"
+            },
+            {
+                id: "ff-mensual",
+                name: "Membresía Mensual",
+                category: "Membresías y Pase",
+                description: "Activación directa por ID • Pago con Saldo Móvil.",
+                price: 2817,
+                badge: "VIP Mensual ⭐",
+                badgeColor: "gold",
+                iconType: "card-monthly"
+            },
+            {
+                id: "ff-booyah",
+                name: "Pase Booyah",
+                category: "Membresías y Pase",
+                description: "Activación directa por ID • Pago con Saldo Móvil.",
+                price: 818,
+                badge: "Temporada",
+                badgeColor: "blue",
+                iconType: "booyah-pass"
+            }
+        ];
+    </script>
+
+    <script>
+        // Estado Global de la Aplicación
+        let appConfig = { ...DEFAULT_CONFIG };
+        let products = [...DEFAULT_PRODUCTS];
+        let cart = [];
+        let currentCategory = "Todos";
+        let searchQuery = "";
+
+        // Inicialización al cargar la página
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("year").textContent = new Date().getFullYear();
+            loadFromLocalStorage();
+            updateStoreHeader();
+            renderProducts();
+            renderCart();
+        });
+
+        // Cargar datos guardados en localStorage
+        // Carrito v3: se descarta el carrito viejo (el que metía 110 diamantes solo)
+        function loadFromLocalStorage() {
+            try {
+                const savedConfig = localStorage.getItem("ff_saldo_config_v2");
+                const savedProducts = localStorage.getItem("ff_saldo_products_v2");
+                const savedCart = localStorage.getItem("ff_saldo_cart_v3");
+
+                if (savedConfig) appConfig = JSON.parse(savedConfig);
+                if (savedProducts) products = JSON.parse(savedProducts);
+
+                if (savedCart) {
+                    const parsed = JSON.parse(savedCart);
+                    if (Array.isArray(parsed)) {
+                        cart = parsed.filter(item =>
+                            products.some(p => p.id === item.id) && Number(item.qty) > 0
+                        );
+                    } else {
+                        cart = [];
+                    }
+                } else {
+                    cart = [];
+                }
+
+                // Borrar carrito antiguo para que no vuelva a aparecer
+                localStorage.removeItem("ff_saldo_cart_v2");
+            } catch (error) {
+                console.error("Error cargando datos locales:", error);
+                cart = [];
+            }
+        }
+
+        // Guardar estado en localStorage
+        function saveToLocalStorage() {
+            try {
+                localStorage.setItem("ff_saldo_config_v2", JSON.stringify(appConfig));
+                localStorage.setItem("ff_saldo_products_v2", JSON.stringify(products));
+                localStorage.setItem("ff_saldo_cart_v3", JSON.stringify(cart));
+            } catch (error) {
+                console.error("Error guardando datos locales:", error);
+            }
+        }
+
+        // Actualizar título dinámico de la tienda
+        function updateStoreHeader() {
+            const titleEl = document.getElementById("store-title-display");
+            if (appConfig.storeName.toLowerCase().includes("free fire")) {
+                const parts = appConfig.storeName.split(/free fire/i);
+                titleEl.innerHTML = `${parts[0]} <span class="text-gradient-electric">Free Fire</span> ${parts[1] || ""}`;
+            } else {
+                titleEl.innerHTML = `<span class="text-gradient-electric">${appConfig.storeName}</span>`;
+            }
+        }
+
+        // Generador de Gráficos SVG Personalizados por Tipo de Producto
+        function getProductSVG(type) {
+            switch (type) {
+                case "diamond-sm":
+                case "diamond-md":
+                    return `
+                        <svg class="w-16 h-16 animate-float drop-shadow-[0_0_12px_rgba(0,229,255,0.5)]" viewBox="0 0 64 64" fill="none">
+                            <polygon points="32,6 54,24 32,58 10,24" fill="url(#cyanGrad)" stroke="#a5f3fc" stroke-width="2"/>
+                            <polygon points="32,6 43,24 32,58 21,24" fill="rgba(255,255,255,0.25)"/>
+                            <line x1="10" y1="24" x2="54" y2="24" stroke="#cffafe" stroke-width="1.5"/>
+                            <defs>
+                                <linearGradient id="cyanGrad" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#00e5ff"/>
+                                    <stop offset="1" stop-color="#2563eb"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>`;
+                case "diamond-lg":
+                case "diamond-xl":
+                    return `
+                        <svg class="w-16 h-16 animate-float drop-shadow-[0_0_15px_rgba(0,229,255,0.65)]" viewBox="0 0 64 64" fill="none">
+                            <polygon points="22,16 38,28 22,54 6,28" fill="#2563eb" opacity="0.8"/>
+                            <polygon points="42,16 58,28 42,54 26,28" fill="#1d4ed8" opacity="0.8"/>
+                            <polygon points="32,6 52,24 32,58 12,24" fill="url(#cyanGrad2)" stroke="#ffffff" stroke-width="2"/>
+                            <polygon points="32,6 42,24 32,58 22,24" fill="rgba(255,255,255,0.35)"/>
+                            <defs>
+                                <linearGradient id="cyanGrad2" x1="12" y1="6" x2="52" y2="58" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#67e8f9"/>
+                                    <stop offset="0.5" stop-color="#00e5ff"/>
+                                    <stop offset="1" stop-color="#1d4ed8"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>`;
+                case "diamond-chest":
+                case "diamond-crown":
+                    return `
+                        <svg class="w-16 h-16 animate-float drop-shadow-[0_0_16px_rgba(251,191,36,0.55)]" viewBox="0 0 64 64" fill="none">
+                            <path d="M12 24L20 12L32 22L44 12L52 24H12Z" fill="#fbbf24" stroke="#fef08a" stroke-width="1.5"/>
+                            <polygon points="32,22 54,34 32,60 10,34" fill="url(#megaDiamond)" stroke="#a5f3fc" stroke-width="2"/>
+                            <polygon points="32,22 43,34 32,60 21,34" fill="rgba(255,255,255,0.3)"/>
+                            <defs>
+                                <linearGradient id="megaDiamond" x1="10" y1="22" x2="54" y2="60" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#00e5ff"/>
+                                    <stop offset="1" stop-color="#2563eb"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>`;
+                case "card-weekly":
+                case "card-monthly":
+                    return `
+                        <svg class="w-16 h-16 animate-float drop-shadow-[0_0_14px_rgba(251,191,36,0.5)]" viewBox="0 0 64 64" fill="none">
+                            <rect x="10" y="14" width="44" height="36" rx="6" fill="url(#goldCard)" stroke="#fef08a" stroke-width="2"/>
+                            <path d="M10 24H54" stroke="#78350f" stroke-width="3" opacity="0.4"/>
+                            <polygon points="32,28 40,35 32,45 24,35" fill="#00e5ff" stroke="#ffffff" stroke-width="1.2"/>
+                            <defs>
+                                <linearGradient id="goldCard" x1="10" y1="14" x2="54" y2="50" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#fde047"/>
+                                    <stop offset="0.5" stop-color="#fbbf24"/>
+                                    <stop offset="1" stop-color="#d97706"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>`;
+                default:
+                    return `
+                        <svg class="w-16 h-16 animate-float drop-shadow-[0_0_15px_rgba(59,130,246,0.65)]" viewBox="0 0 64 64" fill="none">
+                            <path d="M14 12H50L54 32L32 54L10 32L14 12Z" fill="url(#booyahPassGrad)" stroke="#93c5fd" stroke-width="2"/>
+                            <path d="M32 18L36 28H46L38 34L41 44L32 38L23 44L26 34L18 28H28L32 18Z" fill="#fbbf24"/>
+                            <defs>
+                                <linearGradient id="booyahPassGrad" x1="10" y1="12" x2="54" y2="54" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#3b82f6"/>
+                                    <stop offset="1" stop-color="#1e3a8a"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>`;
+            }
+        }
+
+        // Formatear precio en "saldo" con separador de miles (ej: 1,385 saldo)
+        function formatPrice(amount) {
+            const num = Number(amount);
+            const formattedNum = Number.isInteger(num)
+                ? num.toLocaleString('en-US')
+                : num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            return `${formattedNum} ${appConfig.currency}`;
+        }
+
+        // Renderizar tarjetas de productos
+        function renderProducts() {
+            const grid = document.getElementById("products-grid");
+            const emptyState = document.getElementById("empty-state");
+
+            const filtered = products.filter(p => {
+                const matchesCat = currentCategory === "Todos" || p.category === currentCategory;
+                const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                      p.price.toString().includes(searchQuery);
+                return matchesCat && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = "";
+                emptyState.classList.remove("hidden");
+                return;
+            }
+
+            emptyState.classList.add("hidden");
+
+            grid.innerHTML = filtered.map(product => {
+                let badgeClasses = "bg-neonCyan/15 text-neonCyan border-neonCyan/30";
+                if (product.badgeColor === "blue") badgeClasses = "bg-electricBlue/20 text-blue-300 border-electricBlue/40";
+                if (product.badgeColor === "gold") badgeClasses = "bg-goldYellow/20 text-goldYellow border-goldYellow/40";
+
+                return `
+                    <div class="gamer-card rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden group">
+                        <!-- Etiqueta Superior -->
+                        <div class="flex items-center justify-between gap-2 mb-3">
+                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg border ${badgeClasses}">
+                                ${product.badge}
+                            </span>
+                            <span class="text-xs font-medium text-gray-400">${product.category}</span>
+                        </div>
+
+                        <!-- Icono SVG Central -->
+                        <div class="my-2.5 h-24 rounded-xl bg-[#080c16]/85 border border-electricBlue/15 flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-electricBlue/10 via-transparent to-neonCyan/15 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            ${getProductSVG(product.iconType)}
+                        </div>
+
+                        <!-- Info del Paquete -->
+                        <div class="mt-2">
+                            <h3 class="font-gamer text-2xl font-extrabold text-white group-hover:text-neonCyan transition-colors leading-tight">
+                                ${product.name}
+                            </h3>
+                            <p class="text-xs text-gray-400 mt-1">
+                                ${product.description}
+                            </p>
+                        </div>
+
+                        <!-- Precio en Saldo y Botón Agregar -->
+                        <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between gap-3">
+                            <div class="min-w-0">
+                                <span class="block text-[10px] text-gray-400 uppercase tracking-wider font-bold">Saldo Móvil</span>
+                                <span class="font-orbitron text-lg sm:text-xl font-extrabold text-goldYellow break-words">
+                                    ${formatPrice(product.price)}
+                                </span>
+                            </div>
+
+                            <button 
+                                onclick="addToCart('${product.id}')" 
+                                class="px-4 py-2.5 rounded-xl btn-electric text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-md cursor-pointer shrink-0"
+                            >
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <span>Agregar</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join("");
+        }
+
+        // Filtros y Búsqueda
+        function setCategory(category) {
+            currentCategory = category;
+            document.querySelectorAll(".cat-btn").forEach(btn => {
+                if (btn.dataset.cat === category) {
+                    btn.className = "cat-btn active px-5 py-2.5 rounded-xl font-gamer font-bold text-sm uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap bg-electricBlue text-white shadow-lg shadow-electricBlue/30";
+                } else {
+                    btn.className = "cat-btn px-5 py-2.5 rounded-xl font-gamer font-bold text-sm uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap bg-cardDark text-gray-300 hover:bg-cardHover border border-electricBlue/20";
+                }
+            });
+            renderProducts();
+        }
+
+        function handleSearch(value) {
+            searchQuery = value.trim();
+            renderProducts();
+        }
+
+        function resetFilters() {
+            searchQuery = "";
+            document.getElementById("search-input").value = "";
+            setCategory("Todos");
+        }
+
+        // =====================================================================
+        // LÓGICA DEL CARRITO DE COMPRAS
+        // =====================================================================
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({ id: product.id, qty: 1 });
+            }
+
+            saveToLocalStorage();
+            renderCart();
+            showToast(`✅ Agregado: ${product.name} (${formatPrice(product.price)})`);
+        }
+
+        function updateCartQty(productId, delta) {
+            const itemIndex = cart.findIndex(item => item.id === productId);
+            if (itemIndex === -1) return;
+
+            cart[itemIndex].qty += delta;
+            if (cart[itemIndex].qty <= 0) {
+                cart.splice(itemIndex, 1);
+            }
+
+            saveToLocalStorage();
+            renderCart();
+        }
+
+        function renderCart() {
+            const container = document.getElementById("cart-items-container");
+            const badge = document.getElementById("cart-badge");
+            const totalEl = document.getElementById("cart-total-price");
+
+            const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+            badge.textContent = totalItems;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center py-10 px-4">
+                        <div class="w-16 h-16 rounded-2xl bg-cardDark border border-electricBlue/20 flex items-center justify-center text-3xl mb-3">💎</div>
+                        <p class="font-gamer text-lg font-bold text-white">Tu carrito está vacío</p>
+                        <p class="text-xs text-gray-400 mt-1">Selecciona los diamantes, membresía o pase que deseas recargar por ID.</p>
+                    </div>
+                `;
+                totalEl.textContent = formatPrice(0);
+                return;
+            }
+
+            let totalAmount = 0;
+
+            container.innerHTML = cart.map(item => {
+                const product = products.find(p => p.id === item.id);
+                if (!product) return "";
+                const subtotal = product.price * item.qty;
+                totalAmount += subtotal;
+
+                return `
+                    <div class="p-3.5 rounded-xl bg-[#0f172a] border border-electricBlue/20 flex items-center justify-between gap-3">
+                        <div class="flex-grow min-w-0">
+                            <h4 class="font-gamer font-bold text-base text-white truncate">${product.name}</h4>
+                            <p class="text-xs text-goldYellow font-bold">${formatPrice(product.price)} c/u</p>
+                        </div>
+
+                        <div class="flex items-center gap-2 bg-[#080c16] p-1 rounded-lg border border-electricBlue/25 shrink-0">
+                            <button onclick="updateCartQty('${product.id}', -1)" class="w-7 h-7 rounded-md bg-white/5 hover:bg-red-500/20 text-gray-300 hover:text-red-400 font-bold flex items-center justify-center cursor-pointer">-</button>
+                            <span class="w-6 text-center text-sm font-bold text-white">${item.qty}</span>
+                            <button onclick="updateCartQty('${product.id}', 1)" class="w-7 h-7 rounded-md bg-white/5 hover:bg-emerald-500/20 text-gray-300 hover:text-emerald-400 font-bold flex items-center justify-center cursor-pointer">+</button>
+                        </div>
+                    </div>
+                `;
+            }).join("");
+
+            totalEl.textContent = formatPrice(totalAmount);
+        }
+
+        function toggleCartDrawer() {
+            const drawer = document.getElementById("cart-drawer");
+            const backdrop = document.getElementById("cart-backdrop");
+            const isClosed = drawer.classList.contains("translate-x-full");
+
+            if (isClosed) {
+                backdrop.classList.remove("hidden");
+                setTimeout(() => backdrop.classList.remove("opacity-0"), 10);
+                drawer.classList.remove("translate-x-full");
+            } else {
+                drawer.classList.add("translate-x-full");
+                backdrop.classList.add("opacity-0");
+                setTimeout(() => backdrop.classList.add("hidden"), 300);
+            }
+        }
+
+        // =====================================================================
+        // VERIFICADOR DE ID DE FREE FIRE
+        // =====================================================================
+        let lastVerifiedId = null;
+        let lastVerifiedNick = null;
+
+        function setIdStatus(message, type) {
+            const el = document.getElementById("id-status");
+            if (!el) return;
+            el.classList.remove("hidden", "text-emerald-400", "text-amber-400", "text-red-400", "text-gray-400", "text-neonCyan");
+            if (!message) {
+                el.classList.add("hidden");
+                el.textContent = "";
+                return;
+            }
+            el.textContent = message;
+            if (type === "ok") el.classList.add("text-emerald-400");
+            else if (type === "warn") el.classList.add("text-amber-400");
+            else if (type === "error") el.classList.add("text-red-400");
+            else if (type === "info") el.classList.add("text-neonCyan");
+            else el.classList.add("text-gray-400");
+        }
+
+        function isValidIdFormat(id) {
+            return /^[0-9]{6,15}$/.test(id);
+        }
+
+        function onPlayerIdInput(input) {
+            // Solo permitir números
+            input.value = input.value.replace(/\D/g, "").slice(0, 15);
+            const id = input.value.trim();
+            lastVerifiedId = null;
+            lastVerifiedNick = null;
+
+            if (!id) {
+                setIdStatus("", null);
+                return;
+            }
+            if (!isValidIdFormat(id)) {
+                setIdStatus("⚠️ El ID debe tener entre 6 y 15 dígitos (solo números).", "error");
+            } else {
+                setIdStatus("✓ Formato correcto. Puedes tocar Verificar o enviar el pedido.", "ok");
+            }
+        }
+
+        async function verifyPlayerId() {
+            const input = document.getElementById("player-id");
+            const id = input.value.trim();
+            const btn = document.getElementById("btn-verify-id");
+            const btnText = document.getElementById("verify-btn-text");
+            const nameInput = document.getElementById("player-name");
+
+            if (!id) {
+                setIdStatus("⚠️ Escribe el ID primero.", "error");
+                input.focus();
+                return;
+            }
+            if (!isValidIdFormat(id)) {
+                setIdStatus("⚠️ ID inválido. Debe tener entre 6 y 15 dígitos (solo números).", "error");
+                return;
+            }
+
+            // Formato válido → ya se puede usar el pedido aunque la API falle
+            lastVerifiedId = id;
+            lastVerifiedNick = null;
+
+            btn.disabled = true;
+            btnText.textContent = "Buscando…";
+            setIdStatus("🔄 Intentando obtener el nickname…", "info");
+
+            let nickname = null;
+            let region = null;
+
+            // Varias APIs públicas (algunas pueden estar caídas)
+            const endpoints = [
+                `https://ffxinfo-ffx.ffxapis.workers.dev/name?uid=${id}`,
+                `https://ffxinfo-ffx.ffxapis.workers.dev/ffinfo?uid=${id}`,
+                `https://ffxinfo-ffx.ffxapis.workers.dev/check?uid=${id}`,
+                `https://glob-info2.vercel.app/info?uid=${id}`,
+                `https://wzapiinfo.vercel.app/get?uid=${id}`
+            ];
+
+            for (const url of endpoints) {
+                try {
+                    const controller = new AbortController();
+                    const timeout = setTimeout(() => controller.abort(), 4000);
+                    const res = await fetch(url, { signal: controller.signal, mode: "cors" });
+                    clearTimeout(timeout);
+                    if (!res.ok) continue;
+                    const data = await res.json();
+
+                    nickname = data?.data?.nickname
+                        || data?.data?.AccountName
+                        || data?.data?.basicInfo?.nickname
+                        || data?.basicInfo?.nickname
+                        || data?.nickname
+                        || data?.player_nickname
+                        || data?.username
+                        || data?.name
+                        || data?.data?.identity?.nickname
+                        || data?.data?.profile?.nickname
+                        || null;
+
+                    region = data?.data?.region
+                        || data?.data?.AccountRegion
+                        || data?.data?.basicInfo?.region
+                        || data?.basicInfo?.region
+                        || data?.region
+                        || data?.player_region
+                        || null;
+
+                    if (nickname && String(nickname).trim().length > 0) {
+                        nickname = String(nickname).trim();
+                        break;
+                    }
+                } catch (e) {
+                    // Siguiente endpoint
+                }
+            }
+
+            if (nickname) {
+                lastVerifiedNick = nickname;
+                if (nameInput && !nameInput.value.trim()) {
+                    nameInput.value = nickname;
+                }
+                const regionText = region ? ` • Región: ${region}` : "";
+                setIdStatus(`✅ ID correcto: ${nickname}${regionText}`, "ok");
+                showToast(`✅ Cuenta encontrada: ${nickname}`);
+            } else {
+                // Formato válido. Las APIs públicas suelen fallar; el pedido igual se puede enviar.
+                setIdStatus("✓ Formato del ID correcto. Puedes enviar el pedido (confirma el ID en el juego).", "ok");
+                showToast("✓ ID con formato válido. Puedes continuar con el pedido.");
+            }
+
+            btn.disabled = false;
+            btnText.textContent = "Verificar";
+        }
+
+        // Generar texto del pedido
+        function buildOrderMessage() {
+            if (cart.length === 0) {
+                showToast("⚠️ Agrega al menos un producto a tu pedido.");
+                return null;
+            }
+
+            const playerId = document.getElementById("player-id").value.trim();
+            const playerName = document.getElementById("player-name").value.trim();
+
+            if (!playerId) {
+                showToast("⚠️ Por favor ingresa tu ID de jugador de Free Fire.");
+                document.getElementById("player-id").focus();
+                return null;
+            }
+
+            if (!isValidIdFormat(playerId)) {
+                showToast("⚠️ El ID de Free Fire debe tener entre 6 y 15 dígitos (solo números).");
+                document.getElementById("player-id").focus();
+                return null;
+            }
+
+            let total = 0;
+            let lines = [];
+            lines.push(`💎 *NUEVO PEDIDO - ${appConfig.storeName.toUpperCase()}* 💎`);
+            lines.push(`--------------------------------`);
+            lines.push(`💳 *Método De Pago:* Saldo Móvil`);
+            lines.push(`🆔 *Método De Recarga:* ID (${playerId})`);
+            if (playerName) lines.push(`👤 *Nickname:* ${playerName}`);
+            if (lastVerifiedId === playerId && lastVerifiedNick) {
+                lines.push(`✅ *ID Verificado:* ${lastVerifiedNick}`);
+            }
+            lines.push(`--------------------------------`);
+            lines.push(`📦 *Ofertas seleccionadas:*`);
+
+            cart.forEach(item => {
+                const product = products.find(p => p.id === item.id);
+                if (product) {
+                    const sub = product.price * item.qty;
+                    total += sub;
+                    lines.push(`• ${item.qty}x ${product.name} ──> ${formatPrice(sub)}`);
+                }
+            });
+
+            lines.push(`--------------------------------`);
+            lines.push(`💰 *TOTAL A TRANSFERIR:* ${formatPrice(total)}`);
+            lines.push(`⚠️ *Adjunto foto de la transferencia.*`);
+
+            return lines.join("\n");
+        }
+
+        function sendOrderWhatsApp() {
+            const message = buildOrderMessage();
+            if (!message) return;
+
+            // Siempre envía al número +53 63242573
+            const cleanPhone = "5363242573";
+            const url = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`;
+            window.open(url, "_blank");
+        }
+
+        function copyOrderSummary() {
+            const message = buildOrderMessage();
+            if (!message) return;
+
+            const textArea = document.createElement("textarea");
+            textArea.value = message;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand("copy");
+                showToast("📋 ¡Pedido copiado al portapapeles!");
+            } catch (err) {
+                showToast("❌ No se pudo copiar automáticamente.");
+            }
+            document.body.removeChild(textArea);
+        }
+
+        // =====================================================================
+        // PANEL DE ADMINISTRACIÓN / EDITAR PRECIOS
+        // =====================================================================
+        function toggleAdminModal() {
+            const modal = document.getElementById("admin-modal");
+            const isHidden = modal.classList.contains("hidden");
+
+            if (isHidden) {
+                document.getElementById("admin-store-name").value = appConfig.storeName;
+                document.getElementById("admin-whatsapp").value = appConfig.whatsappNumber;
+                document.getElementById("admin-currency").value = appConfig.currency;
+
+                const listContainer = document.getElementById("admin-products-list");
+                listContainer.innerHTML = products.map((p, index) => `
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 rounded-xl bg-[#080c16] border border-electricBlue/20">
+                        <div class="flex-grow">
+                            <input type="text" id="edit-name-${index}" value="${p.name}" class="w-full bg-transparent text-white font-semibold text-sm focus:outline-none focus:text-neonCyan">
+                            <span class="text-[11px] text-gray-500">${p.category}</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <input type="number" step="1" id="edit-price-${index}" value="${p.price}" class="w-28 px-3 py-1.5 rounded-lg bg-[#0f172a] border border-electricBlue/30 text-goldYellow font-bold text-sm text-right focus:border-neonCyan focus:outline-none">
+                            <span class="text-xs text-gray-400 font-bold">${appConfig.currency}</span>
+                        </div>
+                    </div>
+                `).join("");
+
+                modal.classList.remove("hidden");
+                modal.classList.add("flex");
+            } else {
+                modal.classList.add("hidden");
+                modal.classList.remove("flex");
+            }
+        }
+
+        function saveAdminSettings() {
+            appConfig.storeName = document.getElementById("admin-store-name").value.trim() || DEFAULT_CONFIG.storeName;
+            appConfig.whatsappNumber = document.getElementById("admin-whatsapp").value.trim() || DEFAULT_CONFIG.whatsappNumber;
+            appConfig.currency = document.getElementById("admin-currency").value.trim() || "saldo";
+
+            products.forEach((p, index) => {
+                const newName = document.getElementById(`edit-name-${index}`).value.trim();
+                const newPrice = parseFloat(document.getElementById(`edit-price-${index}`).value);
+                if (newName) p.name = newName;
+                if (!isNaN(newPrice) && newPrice >= 0) p.price = newPrice;
+            });
+
+            saveToLocalStorage();
+            updateStoreHeader();
+            renderProducts();
+            renderCart();
+            toggleAdminModal();
+            showToast("💾 Precios y configuración guardados.");
+        }
+
+        function resetDefaultPrices() {
+            appConfig = { ...DEFAULT_CONFIG };
+            products = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+            saveToLocalStorage();
+            updateStoreHeader();
+            renderProducts();
+            renderCart();
+            toggleAdminModal();
+            showToast("🔄 Precios oficiales restaurados.");
+        }
+
+        // Exportar archivo HTML actualizado con los nuevos precios incrustados
+        function exportUpdatedHTML() {
+            saveAdminSettings();
+            const docClone = document.documentElement.cloneNode(true);
+            
+            const modalClone = docClone.querySelector("#admin-modal");
+            modalClone.classList.add("hidden");
+            modalClone.classList.remove("flex");
+
+            const dataScript = docClone.querySelector("#app-data-script");
+            dataScript.textContent = `
+        const DEFAULT_CONFIG = ${JSON.stringify(appConfig, null, 8)};
+
+        const DEFAULT_PRODUCTS = ${JSON.stringify(products, null, 8)};
+            `;
+
+            const htmlContent = "<!DOCTYPE html>\n" + docClone.outerHTML;
+            const blob = new Blob([htmlContent], { type: "text/html;charset=utf-8" });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "catalogo_free_fire_saldo.html";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            showToast("📥 Archivo HTML exportado con tus precios.");
+        }
+
+        // Sistema de Notificaciones Toast
+        function showToast(message) {
+            const container = document.getElementById("toast-container");
+            const toast = document.createElement("div");
+            toast.className = "px-4 py-3 rounded-xl bg-[#0f172a] border border-neonCyan/40 text-white text-xs sm:text-sm font-semibold shadow-2xl flex items-center gap-2 transform transition-all duration-300 translate-y-4 opacity-0";
+            toast.textContent = message;
+            container.appendChild(toast);
+
+            requestAnimationFrame(() => {
+                toast.classList.remove("translate-y-4", "opacity-0");
+            });
+
+            setTimeout(() => {
+                toast.classList.add("translate-y-4", "opacity-0");
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
